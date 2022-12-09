@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+
+        body{
+            background-color: rgb(65, 26, 94);
+            color: dodgerblue;
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: helvetica, sans-serif;
+            height: 100vh;
+            font-size: 1.5rem;
+            padding: 1rem;
+        
+        }
+
+        li {
+            margin-bottom: 10px;
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        li button {
+            font-size: .7rem;
+            color: rgb(26, 11, 65);
+            padding: .3rem;
+        
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+        <label for="item">Enter a new item:</label>
+        <input type="text" name="item" id="item">
+        <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        let list = document.querySelector('ul');
+        let input = document.querySelector('input');
+        let btn = document.querySelector('button');
+
+        btn.addEventListener('click', response);
+
+        function response (){
+            let currentItem = input.value;
+            input.value = '';
+
+            let listItem = document.createElement('li');
+            let span = document.createElement('span');
+            let newBtn = document.createElement('button');
+
+            listItem.appendChild(span);
+            span.textContent = currentItem;
+            listItem.appendChild(newBtn);
+            newBtn.textContent = 'Delete';
+
+            list.appendChild(listItem);
+
+            newBtn.addEventListener('click',() =>{
+                listItem.remove();
+            })
+
+            input.addEventListener('focus', (this));
+
+            console.log(span);
+
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
